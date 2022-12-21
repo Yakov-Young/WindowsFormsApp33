@@ -12,8 +12,17 @@ namespace WindowsFormsApp33
 {
     public partial class Form1 : Form
     {
-        new Points A = new Points();
-        new Points B = new Points();
+        new Points A = new Points() 
+        { 
+            points = { new Point(1, 1, 1), new Point(2, 1, 1), new Point(3, 1, 1),
+                                                new Point(4, 1, 1), new Point(5, 1, 1), new Point(6, 1, 1), 
+                                                new Point(7, 1, 1),new Point(8, 1, 1),} 
+        };
+        new Points B = new Points()
+        {
+            points = { new Point(2, 1, 1), new Point(4, 1, 1), new Point(6, 1, 1),
+                                                new Point(8, 1, 1),}
+        };
         public Form1()
         {
             InitializeComponent();
@@ -51,24 +60,8 @@ namespace WindowsFormsApp33
                 textBox.Text = "0";
                 MessageBox.Show("Неверное значение", "Error");
             }
-           //bool str = Double.TryParse(textBox.Text, out ad);
         }
 
-        private void richTextBox1_SelectionChanged(object sender, EventArgs e)
-        {
-            /*int item = comboBox1.SelectedIndex;
-
-            richTextBox1.Clear();
-
-            if (item == 0)
-            {
-                Points.Get(A, richTextBox1);
-            }
-            else if (item == 1)
-            {
-                Points.Get(B, richTextBox1);
-            }*/
-        }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
@@ -136,15 +129,15 @@ namespace WindowsFormsApp33
 
         private void buttonAddArr_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
             comboBox1.SelectedIndex = 0;
+            richTextBox1.Clear();
             Points.Get(A + B, richTextBox1);
         }
 
         private void buttonRemoveArr_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
             comboBox1.SelectedIndex = 0;
+            richTextBox1.Clear();
             Points.Get(A - B, richTextBox1);
         }
 

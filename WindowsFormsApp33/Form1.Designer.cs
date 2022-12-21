@@ -101,7 +101,6 @@ namespace WindowsFormsApp33
             this.richTextBox1.Size = new System.Drawing.Size(149, 241);
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "";
-            this.richTextBox1.SelectionChanged += new System.EventHandler(this.richTextBox1_SelectionChanged);
             // 
             // comboBox1
             // 

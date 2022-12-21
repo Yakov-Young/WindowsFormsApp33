@@ -24,7 +24,6 @@ namespace WindowsFormsApp33
         public void Get(Label label)
         {
             label.Text = point[0] + ", " + point[1] + ", " + point[2];
-            //Console.WriteLine(point[0] + ", " + point[1] + ", " + point[2]);
         }
         public static bool operator ==(Point item1, Point item2)
         {
@@ -75,7 +74,6 @@ namespace WindowsFormsApp33
                 }
             for (int i = 0; i < points.points.Count; i++)
             {
-                //Console.WriteLine(points[i].point[0] + ", " + points[i].point[1] + ", " + points[i].point[2]);
                 richTextBox.AppendText("{ " + points.points[i].point[0] + ", " + points.points[i].point[1] + ", " + points.points[i].point[2] + " }\n");
             }
         }
@@ -93,7 +91,7 @@ namespace WindowsFormsApp33
             }
 
             double temp1, temp2, temp3;
-            bool a, b;
+            bool a, b, eqv;
             int i = 0;
 
             for (; i < array.points.Count; i++)
@@ -119,6 +117,11 @@ namespace WindowsFormsApp33
                     {
                         temp3 = array.points[i].point[2];
                         a = temp3 > item.point[2];
+                        eqv = temp3 == item.point[2];
+                        if (temp3 == item.point[2])
+                        {
+                            return array;
+                        }
                         if (a)
                         {
                             break;
@@ -139,13 +142,13 @@ namespace WindowsFormsApp33
             {
                 if (array is null || array.points is null || array.points.Count == 0)
                 {
-                    throw new Exception();
-                }
-
-                if (array.points.Contains(item))
-                {
                     return array;
                 }
+
+                /*if (array.points.Contains(item))
+                {
+                    return array;
+                }*/
                 for (int i = 0; i < array.points.Count; i++)
                 {
                     if (array.points[i] == item)
@@ -169,14 +172,14 @@ namespace WindowsFormsApp33
 
         public static Points operator +(Points array1, Points array2)
         {
-            Points result = new Points(2);
 
             for (int i = 0; i < array2.points.Count; i++)
             {
-                result = array1 + array2.points[i];
+                Point item = array2.points[i];
+                array1 = array1 + item;
             }
 
-            return result;
+            return array1;
         }
 
         public static Points operator -(Points array1, Points array2)
